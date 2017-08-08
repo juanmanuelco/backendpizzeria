@@ -1,0 +1,17 @@
+
+  <div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="../images/logo.jpeg" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" method="post" action="/users/login">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" id="inputEmail" class="form-control" placeholder="usuario" required autofocus name="username">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="password">
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesión</button>
+        </form><!-- /form -->
+        <a href="/users/recuperar " class="forgot-password">
+            ¿Contraseña perdida?
+        </a>
+    </div>
+</div>
+<link rel="stylesheet" href="/css/login.css">
