@@ -27,7 +27,7 @@ function obtenerPedido(){
                         <td>${respuesta[i].fecha}</td>
                         <td id="U${respuesta[i]._id}">${respuesta[i].username}</td>
                         <td>${respuesta[i].direccion}</td>
-                        <td>${htmlPedido}</td>
+                        <td id="P${respuesta[i]._id}">${htmlPedido}</td>
                         <td>${(Number(respuesta[i].total)).toFixed(2)}</td>
                         <td>
                             <button id="${respuesta[i]._id}" class="btn btn-info" onclick="aceptar(this)">Aceptar</button>
@@ -43,6 +43,7 @@ function obtenerPedido(){
 function aceptar(identificador){
     var id=identificador.id;
     var envio={'id':id};
+    var pedido=document.getElementById('P'+id);
     $.ajax({
         type:"POST",
         url:"/admin/aceptar",
@@ -53,7 +54,7 @@ function aceptar(identificador){
         var dire=document.getElementById('U'+id).innerText;
         emailjs.send("default_service","correodulceyfrio",{
         to_Destinatario: dire, 
-        mensaje: 'Su pedido ha sido aceptado'});
+        mensaje: 'Su pedido ha sido aceptado    '+pedido});
         alert('Pedido aceptado');
 
         obtenerPedido();
