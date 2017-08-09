@@ -13,15 +13,16 @@ router.get('/',ensureAuthenticated,function(req,res){
     res.render('index');
 });
 router.post('/pedidos',function(req,res){
+	console.log(req.body);
 	var username=req.body.usuario;
 	var carrito=(req.body.carrito).split(',');
 	var fecha=new Date(req.body.fecha);
 	var total=0;
 	var estado='enviado';
-	var tamano=(carrito.length)/5;
 	var nuevoCarrito=new Array();
-	for(var i=0;i<tamano;i++){
+	for(var i=0;i<carrito.length;i+=5){
 		nuevoCarrito.push(new Array(carrito[i], carrito[i+1], carrito[i+2], carrito[i+3], carrito[i+4]));
+		console.log(carrito[i+4]);
 		total+=Number(carrito[i+4]);
 	}
 	var pedidoGuardado=new Pedido({
@@ -31,9 +32,9 @@ router.post('/pedidos',function(req,res){
 		fecha:fecha,
 		total:total
 	});
-
-	pedidoGuardado.save().exec(function(err,resp){
+	pedidoGuardado.save(function(err,resp){
 		if(err){
+			console.log(err)
 			res.send('Error')
 		}else{
 			res.send('ok');
