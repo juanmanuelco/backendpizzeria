@@ -43,7 +43,7 @@ function obtenerPedido(){
 function aceptar(identificador){
     var id=identificador.id;
     var envio={'id':id};
-    var pedido=document.getElementById('P'+id);
+    var pedido=document.getElementById('P'+id).innerHTML;
     $.ajax({
         type:"POST",
         url:"/admin/aceptar",
