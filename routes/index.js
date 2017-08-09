@@ -14,13 +14,13 @@ router.get('/',ensureAuthenticated,function(req,res){
 });
 router.post('/pedidos',function(req,res){
 	console.log(req.body);
-	var username=req.body.usuario;
+	var username=req.body.username;
 	var carrito=(req.body.carrito).split(',');
 	var fecha=new Date(req.body.fecha);
 	var total=0;
 	var estado='enviado';
 	var nuevoCarrito=new Array();
-	for(var i=0;i<carrito.length;i+=5){
+	for(var i=0;i<(carrito.length)-1;i+=5){
 		nuevoCarrito.push(new Array(carrito[i], carrito[i+1], carrito[i+2], carrito[i+3], carrito[i+4]));
 		console.log(carrito[i+4]);
 		total+=Number(carrito[i+4]);
