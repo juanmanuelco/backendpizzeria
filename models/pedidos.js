@@ -4,7 +4,8 @@ var PedidoSchema = mongoose.Schema({
     estado:{type:String},
     pedido:{type:Array},
     fecha:{type:Date},
-    total:{type:Number}
+    total:{type:Number},
+    direccion:{type:String}
 });
 
 var Pedido=module.exports=mongoose.model('Pedido',PedidoSchema);

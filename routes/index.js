@@ -30,7 +30,8 @@ router.post('/pedidos',function(req,res){
 		estado:estado,
 		pedido:nuevoCarrito,
 		fecha:fecha,
-		total:total
+		total:total,
+		direccion:req.body.direccion
 	});
 	pedidoGuardado.save(function(err,resp){
 		if(err){
