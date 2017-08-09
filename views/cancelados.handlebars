@@ -1,6 +1,6 @@
 
 <div style="margin:40px">   
- <h3 style="text-align: center">Pedidos aceptados</h3>
+ <h3 style="text-align: center">Pedidos cancelados</h3>
         <div id="myProgress" class="progress">
             <div id="myBar" class="progress-bar progress-bar-striped active" role="progressbar"></div>
         </div>
@@ -8,7 +8,7 @@
             
         </div>
 </div>
- <script src="../js/aceptados.js"></script>
+ <script src="../js/cancelados.js"></script>
 <script type="defer">  
 recursion();
     function recursion(){
@@ -21,7 +21,7 @@ recursion();
                 document.getElementById('myBar').innerText=0;
                 clearInterval(id);
                 recursion();
-                obteneraceptados()
+                obtenerCancelados()
             } else {
                 width++; 
                 document.getElementById('myBar').innerText='Buscando pedidos '+ width +'%';
@@ -31,6 +31,6 @@ recursion();
     } 
  </script>
  <script>
-    window.addEventListener('load',obteneraceptados());
+    window.addEventListener('load',obtenerCancelados());
 </script>
 
