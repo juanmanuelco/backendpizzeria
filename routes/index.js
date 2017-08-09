@@ -22,7 +22,6 @@ router.post('/pedidos',function(req,res){
 	var nuevoCarrito=new Array();
 	for(var i=0;i<(carrito.length)-1;i+=5){
 		nuevoCarrito.push(new Array(carrito[i], carrito[i+1], carrito[i+2], carrito[i+3], carrito[i+4]));
-		console.log(carrito[i+4]);
 		total+=Number(carrito[i+4]);
 	}
 	var pedidoGuardado=new Pedido({
@@ -35,7 +34,6 @@ router.post('/pedidos',function(req,res){
 	});
 	pedidoGuardado.save(function(err,resp){
 		if(err){
-			console.log(err)
 			res.send('Error')
 		}else{
 			res.send('ok');

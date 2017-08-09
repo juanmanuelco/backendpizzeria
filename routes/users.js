@@ -85,5 +85,7 @@ router.post('/loginMovil',function(req,res){
         }
 	});
 })
+//Cierra sesión________________________________________________________________________________________________________________________________________
+router.get('/logout', function (req, res) { req.logout(); res.redirect('/users/login'); });
 
 module.exports = router;
